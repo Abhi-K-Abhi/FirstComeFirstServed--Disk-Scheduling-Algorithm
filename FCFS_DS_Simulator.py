@@ -1,9 +1,10 @@
-"""
-Project: FirstComeFirstServed--Disk-Scheduling-Algorithm
-Author: Abhibhai Patel
-GitHub: https://github.com/Abhi-K-Abhi/FirstComeFirstServed--Disk-Scheduling-Algorithm
-Description: A PyQt5-based simulator for FCFS disk scheduling with dynamic plotting.
-"""
+# --------------------------------------------------------------------------
+# Project: FirstComeFirstServed--Disk-Scheduling-Algorithm
+# Author: Abhibhai Patel
+# Version: 1.1.0 (Feature Branch)
+# License: MIT
+# GitHub: https://github.com/Abhi-K-Abhi/FirstComeFirstServed--Disk-Scheduling-Algorithm
+# --------------------------------------------------------------------------
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
