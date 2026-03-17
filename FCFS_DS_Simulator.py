@@ -17,6 +17,19 @@ import sys
 import os
 
 class Ui_MainWindow():
+
+    def _calculate_seek_time(self, request_queue, initial_head):
+    """
+    private-access method to calculate FCFS seek metrics
+    scope: internal logic
+    """
+    total_seek = 0
+    current_pos = initial_head
+    for req in request_queue:
+        total_seek += abs(req - current_pos)
+        current_pos = req
+    return total_seek
+    
     def setupUi(self, MainWindow):
 
         MainWindow.setObjectName("MainWindow")
