@@ -1,9 +1,10 @@
-"""
-Project: FirstComeFirstServed--Disk-Scheduling-Algorithm
-Author: Abhibhai Patel
-GitHub: https://github.com/Abhi-K-Abhi/FirstComeFirstServed--Disk-Scheduling-Algorithm
-Description: A PyQt5-based simulator for FCFS disk scheduling with dynamic plotting.
-"""
+# --------------------------------------------------------------------------
+# Project: FirstComeFirstServed--Disk-Scheduling-Algorithm
+# Author: Abhibhai Patel
+# Version: 1.1.0 (Feature Branch)
+# License: MIT
+# GitHub: https://github.com/Abhi-K-Abhi/FirstComeFirstServed--Disk-Scheduling-Algorithm
+# --------------------------------------------------------------------------
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
@@ -17,6 +18,43 @@ import sys
 import os
 
 class Ui_MainWindow():
+
+    def _validate_requests(self, input_str):
+    """
+    private-access method to sanitize user input.
+    scope: internal validation
+    """
+    try:
+        # Removes spaces and converts comma-separated string to list of ints
+        cleaned_list = [int(i.strip()) for i in input_str.split(',') if i.strip().isdigit()]
+        return cleaned_list
+    except ValueError:
+        return []
+
+    def _calculate_seek_time(self, request_queue, initial_head):
+    """
+    private-access method to calculate FCFS seek metrics.
+    scope: internal logic
+    """
+    total_seek = 0
+    current_pos = initial_head
+    for req in request_queue:
+        total_seek += abs(req - current_pos)
+        current_pos = req
+    return total_seek
+
+    def _calculate_seek_time(self, request_queue, initial_head):
+    """
+    private-access method to calculate FCFS seek metrics
+    scope: internal logic
+    """
+    total_seek = 0
+    current_pos = initial_head
+    for req in request_queue:
+        total_seek += abs(req - current_pos)
+        current_pos = req
+    return total_seek
+
     def setupUi(self, MainWindow):
 
         MainWindow.setObjectName("MainWindow")
