@@ -19,6 +19,18 @@ import os
 
 class Ui_MainWindow():
 
+    def _validate_requests(self, input_str):
+    """
+    private-access method to sanitize user input.
+    scope: internal validation
+    """
+    try:
+        # Removes spaces and converts comma-separated string to list of ints
+        cleaned_list = [int(i.strip()) for i in input_str.split(',') if i.strip().isdigit()]
+        return cleaned_list
+    except ValueError:
+        return []
+
     def _calculate_seek_time(self, request_queue, initial_head):
     """
     private-access method to calculate FCFS seek metrics.
@@ -30,7 +42,6 @@ class Ui_MainWindow():
         total_seek += abs(req - current_pos)
         current_pos = req
     return total_seek
-
 
     def _calculate_seek_time(self, request_queue, initial_head):
     """
